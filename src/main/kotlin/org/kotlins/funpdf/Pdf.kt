@@ -21,13 +21,11 @@ class Pdf(configuration: Config.() -> Unit) {
 
     init {
         configuration(config)
-        executable = findExecutable()
-        executable.validateExecutable()
+        executable = "wkhtmltopdf"
     }
 
     constructor(executablePath: String, configuration: Config.() -> Unit) : this(configuration) {
         executable = executablePath
-        executable.validateExecutable()
     }
 
     fun run(inputStream: InputStream, outputStream: OutputStream) {
@@ -104,50 +102,19 @@ class Pdf(configuration: Config.() -> Unit) {
             is OutputStream -> {
                 val inputFile = File(tmpDir, UUID.randomUUID().toString())
                 processBuilder.redirectOutput(inputFile)
-                FileInputStream(inputFile).use {
-                    IOUtils.copy(it, output)
+                processBuilder.start().waitFor()
+
+                FileInputStream(inputFile).use { fis ->
+                    output.use {
+                        IOUtils.copy(fis, output)
+                    }
                 }
             }
+            else -> {
+                processBuilder.start().waitFor()
+            }
         }
-
-        val process = processBuilder.start()
-        process.waitFor()
     }
-}
-
-
-fun String.validateExecutable(): Boolean {
-    val file = File(this)
-    if (file.canExecute()) {
-        return true
-    } else {
-        throw throw NoExecutableException("$this is not executable")
-    }
-}
-
-
-fun findExecutable(): String {
-    val os = System.getProperty("os.name")?.toLowerCase() ?: ""
-    val cmd = if (os.contains("windows")) "where wkhtmltopdf" else "which wkhtmltopdf"
-
-    return try {
-        cmd.execute()
-    } catch (r: Exception) {
-        throw NoExecutableException("Cannot find wkhtmltopdf executable", r)
-    }
-}
-
-
-fun String.execute(): String {
-    val process = ProcessBuilder(this).start()
-    process.waitFor()
-    return process.inputStream.use {
-        IOUtils.toString(it, "UTF-8")
-    }
-}
-
-class NoExecutableException(message: String, cause: Throwable?) : Exception(message, cause) {
-    constructor(message: String) : this(message, null)
 }
 
 class TypeNotSupportedException(message: String, cause: Throwable?) : Exception(message, cause) {
