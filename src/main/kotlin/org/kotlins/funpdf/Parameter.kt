@@ -1,7 +1,7 @@
 package org.kotlins.funpdf
 
 /**
- * [Documentation Here]
+ * Parameter class.
  *
  * @author Deny Prasetyo.
  */

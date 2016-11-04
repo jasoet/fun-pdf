@@ -1,9 +1,7 @@
 package org.kotlins.funpdf
 
-import org.apache.commons.io.IOUtils
-
 /**
- * [Documentation Here]
+ * Config Class. All available option described here
  *
  * @author Deny Prasetyo.
  */
