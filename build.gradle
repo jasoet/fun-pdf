@@ -70,15 +70,16 @@ bintray {
     configurations = ['archives']
     publish = true
     pkg {
+        userOrg = 'kotlins'
         repo = 'org.kotlins'
         name = 'funpdf'
         desc = "Wkhtmltopdf Wrapper for Kotlin."
-        userOrg = user
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/kotlins/funpdf.git'
         issueTrackerUrl = 'https://github.com/kotlins/funpdf/issues'
         labels = ['kotlin', 'pdf', 'wkthmltopdf']
         publicDownloadNumbers = true
+        override = true
         version {
             name = "${project.version}"
             desc = "funpdf version ${project.version}, Need More Test!."
