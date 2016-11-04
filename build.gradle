@@ -36,6 +36,9 @@ check.dependsOn jacocoTestReport
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
     compile "commons-io:commons-io:${commonsIOVersion}"
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+
+    testCompile "ch.qos.logback:logback-classic:${logbackVersion}"
     testCompile "org.jetbrains.kotlin:kotlin-test:${kotlinVersion}"
     testCompile "org.assertj:assertj-core:${assertJVersion}"
     testCompile "junit:junit:${junitVersion}"
