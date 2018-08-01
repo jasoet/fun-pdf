@@ -23,17 +23,28 @@ import java.io.InputStream
 import java.io.OutputStream
 
 
-fun InputStream.convertToPdf(output: OutputStream, configuration: Config.() -> Unit = {}) {
-    HtmlToPdf(configuration = configuration).convert(input = this, output = output)
+fun InputStream.convertToPdf(
+    output: OutputStream,
+    executable: String = "",
+    configuration: Config.() -> Unit = {}
+) {
+    HtmlToPdf(executable = executable, configuration = configuration).convert(input = this, output = output)
 }
 
-fun InputStream.convertToPdf(output: File, configuration: Config.() -> Unit = {}) {
-    HtmlToPdf(configuration = configuration).convert(input = this, output = output)
+fun InputStream.convertToPdf(
+    output: File,
+    executable: String = "",
+    configuration: Config.() -> Unit = {}
+) {
+    HtmlToPdf(executable = executable, configuration = configuration).convert(input = this, output = output)
 }
 
-fun InputStream?.convertToPdf(configuration: Config.() -> Unit = {}): InputStream? {
+fun InputStream?.convertToPdf(
+    executable: String = "",
+    configuration: Config.() -> Unit = {}
+): InputStream? {
     return if (this != null) {
-        HtmlToPdf(configuration = configuration).convert(input = this)
+        HtmlToPdf(executable = executable, configuration = configuration).convert(input = this)
     } else {
         null
     }

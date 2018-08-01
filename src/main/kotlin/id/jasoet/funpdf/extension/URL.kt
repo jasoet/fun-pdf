@@ -24,15 +24,15 @@ import java.io.OutputStream
 import java.net.URL
 
 
-fun URL.convertToPdf(output: OutputStream, configuration: Config.() -> Unit = {}) {
-    HtmlToPdf(configuration = configuration).convert(input = this, output = output)
+fun URL.convertToPdf(output: OutputStream, executable: String = "", configuration: Config.() -> Unit = {}) {
+    HtmlToPdf(executable = executable, configuration = configuration).convert(input = this, output = output)
 }
 
-fun URL.convertToPdf(output: File, configuration: Config.() -> Unit = {}) {
-    HtmlToPdf(configuration = configuration).convert(input = this, output = output)
+fun URL.convertToPdf(output: File, executable: String = "", configuration: Config.() -> Unit = {}) {
+    HtmlToPdf(executable = executable, configuration = configuration).convert(input = this, output = output)
 }
 
-fun URL.convertToPdf(configuration: Config.() -> Unit = {}): InputStream? {
-    return HtmlToPdf(configuration = configuration).convert(input = this)
+fun URL.convertToPdf(executable: String = "", configuration: Config.() -> Unit = {}): InputStream? {
+    return HtmlToPdf(executable = executable, configuration = configuration).convert(input = this)
 }
 

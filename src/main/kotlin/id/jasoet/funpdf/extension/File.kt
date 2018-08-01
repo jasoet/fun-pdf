@@ -21,17 +21,16 @@ import id.jasoet.funpdf.HtmlToPdf
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
-import java.net.URL
 
-fun File.convertToPdf(output: OutputStream, configuration: Config.() -> Unit = {}) {
-    HtmlToPdf(configuration = configuration).convert(input = this, output = output)
+fun File.convertToPdf(output: OutputStream, executable: String = "", configuration: Config.() -> Unit = {}) {
+    HtmlToPdf(executable = executable, configuration = configuration).convert(input = this, output = output)
 }
 
-fun File.convertToPdf(output: File, configuration: Config.() -> Unit = {}) {
-    HtmlToPdf(configuration = configuration).convert(input = this, output = output)
+fun File.convertToPdf(output: File, executable: String = "", configuration: Config.() -> Unit = {}) {
+    HtmlToPdf(executable = executable, configuration = configuration).convert(input = this, output = output)
 }
 
-fun File.convertToPdf(configuration: Config.() -> Unit = {}): InputStream? {
-    return HtmlToPdf(configuration = configuration).convert(input = this)
+fun File.convertToPdf(executable: String = "", configuration: Config.() -> Unit = {}): InputStream? {
+    return HtmlToPdf(executable = executable, configuration = configuration).convert(input = this)
 }
 

@@ -24,7 +24,7 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.net.URL
 
-class HtmlToPdf(executableBinary: String = "", configuration: Config.() -> Unit = {}) {
+class HtmlToPdf(executable: String = "", configuration: Config.() -> Unit = {}) {
     private val log = LoggerFactory.getLogger(HtmlToPdf::class.java)
     private val config: Config = Config()
     private var executable: String
@@ -32,10 +32,10 @@ class HtmlToPdf(executableBinary: String = "", configuration: Config.() -> Unit 
     init {
         configuration(config)
 
-        executable = if (executableBinary.isExecutable()) {
-            executableBinary
+        this.executable = if (executable.isExecutable()) {
+            executable
         } else {
-            log.debug("$executableBinary is not exists or not executable, use default binary")
+            log.debug("$executable is not exists or not executable, use default binary")
             which("wkhtmltopdf")
         }
 

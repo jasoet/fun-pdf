@@ -12,7 +12,7 @@ buildscript {
         kluentVersion = "1.35"
         commonsIOVersion = '2.5'
         logbackVersion = "1.2.3"
-        funKommandVersion = "1.0.2"
+        funKommandVersion = "1.0.3"
     }
 
     repositories {

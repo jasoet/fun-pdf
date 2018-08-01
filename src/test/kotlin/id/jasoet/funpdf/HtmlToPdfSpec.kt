@@ -16,6 +16,8 @@
 
 package id.jasoet.funpdf
 
+import id.jasoet.funkommand.execute
+import id.jasoet.funpdf.extension.convertToPdf
 import org.amshove.kluent.shouldBe
 import org.amshove.kluent.shouldNotBeNull
 import org.apache.commons.io.FileUtils
@@ -35,13 +37,15 @@ object HtmlToPdfSpec : Spek({
     val tmpDir: String = System.getProperty("java.io.tmpdir")
 
     given("HtmlToPdf Converter") {
-        val pdf = HtmlToPdf {
-            orientation(PageOrientation.LANDSCAPE)
-            pageSize("Letter")
-            marginTop("1in")
-            marginBottom("1in")
-            marginLeft("1in")
-            marginRight("1in")
+        val pdf by lazy {
+            HtmlToPdf {
+                orientation(PageOrientation.LANDSCAPE)
+                pageSize("Letter")
+                marginTop("1in")
+                marginBottom("1in")
+                marginLeft("1in")
+                marginRight("1in")
+            }
         }
 
         on("Handle string input") {
