@@ -24,7 +24,7 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.net.URL
 
-class HtmlToPdf(executableBinary: String = "", configuration: Config.() -> Unit) {
+class HtmlToPdf(executableBinary: String = "", configuration: Config.() -> Unit = {}) {
     private val log = LoggerFactory.getLogger(HtmlToPdf::class.java)
     private val config: Config = Config()
     private var executable: String
@@ -42,7 +42,8 @@ class HtmlToPdf(executableBinary: String = "", configuration: Config.() -> Unit)
     }
 
     fun convert(
-        input: Any, output: Any? = null,
+        input: Any,
+        output: Any? = null,
         environment: Map<String, String> = emptyMap(),
         directory: String = System.getProperty("user.home"),
         processConfig: (ProcessBuilder) -> Unit = {}
@@ -57,7 +58,7 @@ class HtmlToPdf(executableBinary: String = "", configuration: Config.() -> Unit)
                     else -> throw ProtocolNotSupportedException("Protocol ${input.protocol} not Supported")
                 }
             }
-            else -> ""
+            else -> throw IllegalArgumentException("Input Type ${input::class} is not Supported")
         }
 
         val outputParameter: String = when (output) {

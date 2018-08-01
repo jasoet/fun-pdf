@@ -12,6 +12,7 @@ buildscript {
         kluentVersion = "1.35"
         commonsIOVersion = '2.5'
         logbackVersion = "1.2.3"
+        funKommandVersion = "1.0.2"
     }
 
     repositories {
@@ -53,7 +54,7 @@ dependencies {
     compile "ch.qos.logback:logback-classic:$logbackVersion"
     compile "io.arrow-kt:arrow-core:$arrowVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    compile 'id.jasoet:fun-kommand:1.0.1'
+    compile "id.jasoet:fun-kommand:$funKommandVersion"
 
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
     testCompile "org.amshove.kluent:kluent:$kluentVersion"

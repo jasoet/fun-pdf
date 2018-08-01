@@ -46,4 +46,4 @@ compile 'id.jasoet:fun-pdf:<version>'
 ```
 
 ## Usage
-See [unit test file](https://github.com/jasoet/fun-pdf/blob/master/src/test/kotlin/id/jasoet/funpdf/HtmlToPdfSpec.kt).
+See [unit test files](https://github.com/jasoet/fun-pdf/blob/master/src/test/kotlin/id/jasoet/funpdf/).
