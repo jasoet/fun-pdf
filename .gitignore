@@ -4,6 +4,7 @@ deploy
 .idea
 .gradle
 *.iml
+out/
 
 logs
 *.log

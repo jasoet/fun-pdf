@@ -1,10 +1,21 @@
-package org.kotlins.funpdf
-
-/**
- * Config Class. All available option described here
+/*
+ * Copyright (C)2018 - Deny Prasetyo <jasoet87@gmail.com>
  *
- * @author Deny Prasetyo.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
+package id.jasoet.funpdf
+
 
 class Config {
     val allow = Parameter<List<String>>("allow")
@@ -16,7 +27,7 @@ class Config {
     val disableSmartShrinking = Parameter<Boolean>("disable-smart-shrinking")
     val javascriptDelay = Parameter<Int>("javascript-delay")
     val convertForms = Parameter<Boolean>("forms")
-    val encoding = Parameter<String>("encoding", "UTF-8")
+    val encoding = Parameter("encoding", "UTF-8")
     val grayScale = Parameter<Boolean>("grayscale")
     val lowQuality = Parameter<Boolean>("lowquality")
     val marginBottom = Parameter<String>("margin-bottom")

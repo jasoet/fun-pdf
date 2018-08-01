@@ -20,7 +20,7 @@ test-pattern: # Configure exclusions for test sources
     - 'TooManyFunctions'
 
 build:
-  maxIssues: 20
+  maxIssues: 5
   weights:
     complexity: 2
     formatting: 1
@@ -93,7 +93,7 @@ complexity:
     threshold: 20
   LongParameterList:
     active: true
-    threshold: 5
+    threshold: 10
     ignoreDefaultParameters: false
   MethodOverloading:
     active: false
@@ -150,14 +150,14 @@ empty-blocks:
 exceptions:
   active: true
   ExceptionRaisedInUnexpectedLocation:
-    active: true
+    active: false
     methodNames: 'toString,hashCode,equals,finalize'
   InstanceOfCheckForException:
-    active: true
+    active: false
   NotImplementedDeclaration:
-    active: true
+    active: false
   PrintStackTrace:
-    active: true
+    active: false
   RethrowCaughtException:
     active: false
   ReturnFromFinally:
@@ -178,12 +178,12 @@ exceptions:
     exceptions:
      - ArrayIndexOutOfBoundsException
      - Error
-     - Throwable
      - Exception
      - IllegalMonitorStateException
      - NullPointerException
      - IndexOutOfBoundsException
      - RuntimeException
+     - Throwable
   TooGenericExceptionThrown:
     active: true
     exceptions:
