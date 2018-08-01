@@ -26,4 +26,6 @@ before_install:
 script:
   - ./gradlew clean build
 
-
+after_success:
+  - ./gradlew bintrayUpload
+  - bash <(curl -s https://codecov.io/bash) -t b4bb7a32-0fed-4fce-b38b-fff96428d465
