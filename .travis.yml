@@ -19,7 +19,7 @@ cache:
 
 before_install:
   - sudo apt-get update -q
-  - apt-get install -yq wget  xfonts-base xfonts-75dpi
+  - sudo apt-get install -yq wget  xfonts-base xfonts-75dpi
   - curl -sLO https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.trusty_amd64.deb
   - sudo dpkg -i wkhtmltox_0.12.5-1.trusty_amd64.deb
 
