@@ -154,12 +154,18 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
 }
 
 artifacts {
     archives sourcesJar
+    archives javadocJar
 }
 
 def pomConfig = {
@@ -188,6 +194,7 @@ publishing {
         FunPublication(MavenPublication) {
             from components.java
             artifact sourcesJar
+            artifact javadocJar
             groupId 'id.jasoet'
             artifactId "${project.name}"
             version "${version}"
