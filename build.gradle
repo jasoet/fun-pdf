@@ -38,9 +38,6 @@ apply plugin: "idea"
 
 
 repositories {
-    maven {
-        url "https://dl.bintray.com/jasoet/fun"
-    }
     mavenLocal()
     mavenCentral()
     jcenter()
