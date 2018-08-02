@@ -13,6 +13,7 @@ Library to convert Html to Pdf using `wkhtmltopdf` library. This library only te
 - Accept `Map` as environment variable.
 - Return `BufferedInputStream` if output is not redirected, null if otherwise.
 - `InputStream` from a command will be easily to be piped (as input) to other command. 
+- Available on jcenter()
 
 ## Install wkhtmltopdf
 `wkhtmltopdf` library can be downloaded from [here](https://wkhtmltopdf.org/downloads.html)
@@ -35,9 +36,7 @@ brew cask install wkhtmltopdf
 ### Add maven repository url
 ```groovy
 repositories {
-    maven {
-       url "https://dl.bintray.com/jasoet/fun"
-    }
+    jcenter()
 }
 ```
 

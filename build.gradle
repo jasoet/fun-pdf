@@ -4,7 +4,7 @@ buildscript {
         bintrayUser = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
         bintrayApiKey = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
 
-        kotlinVersion = "1.2.51"
+        kotlinVersion = "1.2.60"
         coroutineVersion = "0.24.0"
         arrowVersion = "0.7.2"
         jUnitVersion = "5.1.0"
@@ -23,8 +23,8 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.2.51"
-    id "org.jetbrains.kotlin.kapt" version "1.2.51"
+    id "org.jetbrains.kotlin.jvm" version "1.2.60"
+    id "org.jetbrains.kotlin.kapt" version "1.2.60"
     id "io.gitlab.arturbosch.detekt" version "1.0.0.RC8"
     id "com.jfrog.bintray" version "1.8.4"
     id 'com.github.ksoichiro.console.reporter' version '0.5.0'
