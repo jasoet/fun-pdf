@@ -16,12 +16,4 @@
 
 package id.jasoet.funpdf
 
-import id.jasoet.funkommand.execute
-import id.jasoet.funkommand.executeToString
-import org.slf4j.LoggerFactory
-import java.io.File
-import java.io.InputStream
-import java.io.OutputStream
-import java.net.URL
-
-class HtmlToPdf(executable: String = "", configuration: Config.() -> Unit = {}) : HtmlToX("wkhtmltopdf", executable, configuration)
+class HtmlToImage(executable: String = "", configuration: Config.() -> Unit = {}) : HtmlToX("wkhtmltoimage", executable, configuration)
